@@ -1,4 +1,5 @@
 before_script:
+  - chmod +x script/prepare_build.sh
   - ./script/prepare_build.sh
   - ruby -v
   - gem install bundler
@@ -9,18 +10,11 @@ before_script:
 specs:
   script: SIMPLECOV=true RAILS_ENV=test bundle exec rake spec
   parallel: 10
-  tags:
-    - ruby
-    - mysql
+
 rubocop:
   script: bundle exec rubocop
   parallel: 10
-  tags:
-    - ruby
-    - mysql
+
 brakeman:
   script: bundle exec brakeman
   parallel: 10
-  tags:
-    - ruby
-    - mysql
